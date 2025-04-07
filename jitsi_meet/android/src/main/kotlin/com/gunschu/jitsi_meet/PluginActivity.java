@@ -22,8 +22,6 @@ import org.jitsi.meet.sdk.JitsiMeetConferenceOptions;
 
 import java.util.HashMap;
 
-import android.content.Context.RECEIVER_NOT_EXPORTED;
-
 public class PluginActivity extends JitsiMeetActivity {
     private final String TAG = PluginActivity.class.getSimpleName();
     boolean onStopCalled = false;
@@ -75,9 +73,9 @@ public class PluginActivity extends JitsiMeetActivity {
         super.onResume();
         onStopCalled = false;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            registerReceiver(myReceiver, IntentFilter(JITSI_MEETING_CLOSE), RECEIVER_NOT_EXPORTED);
+            registerReceiver(myReceiver, new IntentFilter(JITSI_MEETING_CLOSE), Context.RECEIVER_NOT_EXPORTED);
         } else {
-            registerReceiver(myReceiver, IntentFilter(JITSI_MEETING_CLOSE));
+            registerReceiver(myReceiver, new IntentFilter(JITSI_MEETING_CLOSE));
         }
 
     }

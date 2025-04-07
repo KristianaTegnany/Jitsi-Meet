@@ -17,8 +17,6 @@ import com.gunschu.jitsi_meet.JitsiMeetPlugin.Companion.JITSI_PLUGIN_TAG
 import org.jitsi.meet.sdk.JitsiMeetActivity
 import org.jitsi.meet.sdk.JitsiMeetConferenceOptions
 
-import android.content.Context.RECEIVER_NOT_EXPORTED
-
 /**
  * Activity extending JitsiMeetActivity in order to override the conference events
  */
@@ -71,7 +69,7 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
         super.onResume()
         onStopCalled = false
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            registerReceiver(myReceiver, IntentFilter(JITSI_MEETING_CLOSE), RECEIVER_NOT_EXPORTED)
+            registerReceiver(myReceiver, IntentFilter(JITSI_MEETING_CLOSE), Context.RECEIVER_NOT_EXPORTED)
         } else {
             registerReceiver(myReceiver, IntentFilter(JITSI_MEETING_CLOSE))
         }
