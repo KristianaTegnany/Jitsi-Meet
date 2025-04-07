@@ -75,9 +75,9 @@ public class PluginActivity extends JitsiMeetActivity {
         super.onResume();
         onStopCalled = false;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            registerReceiver(myReceiver, IntentFilter(JITSI_MEETING_CLOSE), RECEIVER_NOT_EXPORTED)
+            registerReceiver(myReceiver, IntentFilter(JITSI_MEETING_CLOSE), RECEIVER_NOT_EXPORTED);
         } else {
-            registerReceiver(myReceiver, IntentFilter(JITSI_MEETING_CLOSE))
+            registerReceiver(myReceiver, IntentFilter(JITSI_MEETING_CLOSE));
         }
 
     }
