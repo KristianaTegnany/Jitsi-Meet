@@ -13,7 +13,6 @@ import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
-import io.flutter.plugin.common.PluginRegistry.Registrar
 import org.jitsi.meet.sdk.JitsiMeetConferenceOptions
 import org.jitsi.meet.sdk.JitsiMeetUserInfo
 import java.net.URL
@@ -65,17 +64,6 @@ public class JitsiMeetPlugin() : FlutterPlugin, MethodCallHandler, ActivityAware
     // depending on the user's project. onAttachedToEngine or registerWith must both be defined
     // in the same class.
     companion object {
-        @JvmStatic
-        fun registerWith(registrar: Registrar) {
-            val plugin = JitsiMeetPlugin(registrar.activity())
-            val channel = MethodChannel(registrar.messenger(), JITSI_METHOD_CHANNEL)
-            channel.setMethodCallHandler(plugin)
-
-
-            val eventChannel = EventChannel(registrar.messenger(), JITSI_EVENT_CHANNEL)
-            eventChannel.setStreamHandler(JitsiMeetEventStreamHandler.instance)
-        }
-
         const val JITSI_PLUGIN_TAG = "JITSI_MEET_PLUGIN"
         const val JITSI_METHOD_CHANNEL = "jitsi_meet"
         const val JITSI_EVENT_CHANNEL = "jitsi_meet_events"
