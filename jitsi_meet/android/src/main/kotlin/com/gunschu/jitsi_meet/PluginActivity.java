@@ -22,7 +22,7 @@ import org.jitsi.meet.sdk.JitsiMeetConferenceOptions;
 
 import java.util.HashMap;
 
-import android.content.Context.RECEIVER_NOT_EXPORTED
+import android.content.Context.RECEIVER_NOT_EXPORTED;
 
 public class PluginActivity extends JitsiMeetActivity {
     private final String TAG = PluginActivity.class.getSimpleName();
